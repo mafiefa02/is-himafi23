@@ -397,6 +397,9 @@ const akunPanit = [
 
 const load = async () => {
   try {
+    await prisma.user
+      .createMany({ data: akunPanit })
+      .then(() => console.log("done bg"));
     // ! INI UNTUK BUAT NOTIFIKASI, BODY KURANG LEBIH KEK GINI
     // ! {
     // !  title: "judul",

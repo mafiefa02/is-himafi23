@@ -1,8 +1,8 @@
 datasource db {
-  provider          = "mysql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql" // Changed from "mysql"
+  url      = env("DATABASE_URL")
   // directUrl         = env("DIRECT_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Useful for cloud-hosted PostgreSQL databases that have limitations on database creation.
 }
 
 generator client {
@@ -38,7 +38,7 @@ model Tugas {
   dueDate     DateTime
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  attachments String?      @db.LongText
+  attachments String?      @db.Text // Changed to Text
   comments    Post[]
   submissions Submission[]
 }
@@ -51,8 +51,8 @@ model Submission {
   userId      String?
   tugas       Tugas?   @relation(fields: [tugasId], references: [id], onDelete: SetNull)
   tugasId     Int?
-  files       String?  @db.LongText
-  links       String?  @db.LongText
+  files       String?  @db.Text // Changed to Text
+  links       String?  @db.Text // Changed to Text
   score       Int?
   feedback    Post[]
 }

@@ -60,7 +60,7 @@ const NavbarContainer = ({
           "shadow-lg border-b bg-background/80 backdrop-contrast-100 backdrop-brightness-100",
         !scrolled && !disableBackground && background,
         "sticky top-0 z-50",
-        className
+        className,
       )}
       {...props}
     >
@@ -74,7 +74,7 @@ const NavbarContent = ({ className, children, ...props }: NavbarProps) => {
     <div
       className={cn(
         "container py-4 flex flex-row items-center justify-between",
-        className
+        className,
       )}
       {...props}
     >
@@ -178,7 +178,7 @@ const NavbarDropdownLink = ({
       {...props}
       className={cn(
         navigationMenuTriggerStyle(),
-        "w-full whitespace-nowrap justify-start"
+        "w-full whitespace-nowrap justify-start",
       )}
     >
       {children}
@@ -191,7 +191,7 @@ const NavbarSideMenu = ({ className, children, ...props }: NavbarProps) => {
     <div
       className={cn(
         "flex flex-row gap-4 justify-end items-center md:w-1/4",
-        className
+        className,
       )}
       {...props}
     >
@@ -290,7 +290,7 @@ export default function Navbar({
               {/* <NavbarLink href="/#visi-misi">Visi dan Misi</NavbarLink> */}
               {/* <NavbarLink href="/#galeri">Galeri</NavbarLink>
               <NavbarLink href="/#social">Social</NavbarLink> */}
-              <NavbarLink href="/leaderboard">Leaderboard</NavbarLink>
+              {/*<NavbarLink href="/leaderboard">Leaderboard</NavbarLink>*/}
             </NavbarItems>
             <NavbarSideMenu>
               {/* <ThemeSwitch /> */}
